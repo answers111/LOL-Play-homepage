@@ -4,3 +4,8 @@ node_modules/
 .env.*
 *.log
 .github-token
+
+# Private paper and internal source metadata
+/assets/lolplay-paper.pdf
+/data/provenance.json
+/data/overleaf-verification.json
