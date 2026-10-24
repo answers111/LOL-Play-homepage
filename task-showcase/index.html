@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore LOLPlay's 36 champion-specific League of Legends tasks, six task families, time budgets, and executable subgoal checks.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Task Showcase | LOLPlay</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css?v=20261025">
+  <script defer src="tasks.js?v=20261025"></script>
+</head>
+<body>
+<main id="top">
+  <section class="task-hero">
+    <div class="container">
+      <a class="back-link" href="../">← Back to LOLPlay</a>
+      <h1>LOLPlay Task Showcase</h1>
+      <p>36 champions. Six task families. 82 executable subgoal checks.</p>
+      <div class="publication-links" aria-label="Task resources">
+        <a class="pill" href="#catalog">Explore all 36 tasks</a>
+        
+        <a class="pill" href="../data/tasks.json?v=20261025" download>Task definitions ↓</a>
+        <a class="pill" href="../data/results.csv?v=20261025" download>Results ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="examples-title">
+    <div class="container">
+      <h2 id="examples-title">Representative Tasks</h2>
+      <p class="centered section-description">Screenshots from six benchmark tasks. Select a task to inspect its complete objective and evaluation checks.</p>
+      <div class="task-grid">
+        <a class="showcase-card" href="#task-009" data-task-link="009">
+          <img src="../assets/examples/009.png" alt="League of Legends gameplay screenshot from the Ahri development task." width="1920" height="1080" loading="lazy">
+          <div><small>Task009 · Development and constraints · 7 min</small><h3>Ahri</h3><p>Reach 10 CS and level 4, with Q2, W1, E1, and R0.</p></div>
+        </a>
+        <a class="showcase-card" href="#task-016" data-task-link="016">
+          <img src="../assets/examples/016.png" alt="League of Legends gameplay screenshot from the Brand deadline task." width="1920" height="1080" loading="lazy">
+          <div><small>Task016 · Sustain and deadline control · 8 min</small><h3>Brand</h3><p>Finish with at least 20 CS and 50% mana at the deadline.</p></div>
+        </a>
+        <a class="showcase-card" href="#task-022" data-task-link="022">
+          <img src="../assets/examples/022.png" alt="League of Legends gameplay screenshot from the Darius combat task." width="1920" height="1080" loading="lazy">
+          <div><small>Task022 · Combat · 9 min</small><h3>Darius</h3><p>Personally kill Soraka with no more than one death.</p></div>
+        </a>
+        <a class="showcase-card" href="#task-025" data-task-link="025">
+          <img src="../assets/examples/025.png" alt="League of Legends gameplay screenshot from the Lulu cooperation task." width="1920" height="1080" loading="lazy">
+          <div><small>Task025 · Cooperation · 10 min</small><h3>Lulu</h3><p>Assist allied Ashe in a kill with no more than one death.</p></div>
+        </a>
+        <a class="showcase-card" href="#task-035" data-task-link="035">
+          <img src="../assets/examples/035.png" alt="League of Legends gameplay screenshot from the Warwick ordered-objective task." width="1920" height="1080" loading="lazy">
+          <div><small>Task035 · Map objectives · 12 min</small><h3>Warwick</h3><p>Personally kill a Voidgrub, then destroy the top outer turret.</p></div>
+        </a>
+        <a class="showcase-card" href="#task-036" data-task-link="036">
+          <img src="../assets/examples/036.png" alt="League of Legends gameplay screenshot from the Syndra economy task." width="1920" height="1080" loading="lazy">
+          <div><small>Task036 · Economy and farming · 7 min</small><h3>Syndra</h3><p>Buy Lost Chapter and finish with it in the inventory.</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="catalog" aria-labelledby="catalog-title">
+    <div class="container">
+      <h2 id="catalog-title">Complete Task Catalog</h2>
+      <p>Each task specifies a champion, a time budget, and a set of executable outcome checks. The current instruction-aligned suite contains 82 checks. Task success requires every required condition, including deadlines and event order.</p>
+      <div class="catalog-toolbar" role="search" aria-label="Search the task catalog">
+        <label class="sr-only" for="task-search">Search tasks, champions, objectives, or subgoal checks</label>
+        <input id="task-search" type="search" placeholder="Search tasks, champions, or objectives…" aria-controls="task-rows" disabled>
+        <label class="sr-only" for="family-filter">Task family</label>
+        <select id="family-filter" aria-controls="task-rows" disabled><option value="all">All task families</option></select>
+      </div>
+      <p class="catalog-count" id="catalog-count" role="status" aria-live="polite" aria-atomic="true">Loading 36 tasks…</p>
+      <div class="table-scroll" id="catalog-table" hidden>
+        <table class="research-table task-catalog">
+          <caption class="sr-only">LOLPlay tasks. Expand a task's subgoal checks to inspect its evaluation criteria.</caption>
+          <thead><tr><th scope="col">Task</th><th scope="col">Champion</th><th scope="col">Family</th><th scope="col">Budget</th><th scope="col">Objective &amp; evaluation</th></tr></thead>
+          <tbody id="task-rows"></tbody>
+        </table>
+      </div>
+      <div class="catalog-empty" id="catalog-empty" hidden><p>No tasks match these filters. Try another champion, objective, or task family.</p><button class="pill" id="clear-filters" type="button">Clear filters</button></div>
+      <div class="catalog-empty" id="catalog-error" hidden><p>The task catalog could not be loaded. You can retry or download the complete definitions.</p><button class="pill" id="retry-load" type="button">Retry</button> <a href="../data/tasks.json?v=20261025" download>Download task JSON ↓</a></div>
+      <p class="catalog-count">Updated: 25 October 2026 · <a href="../data/tasks.json?v=20261025" download>Download all task definitions (JSON) ↓</a></p>
+    </div>
+  </section>
+</main>
+<footer><a href="../">LOLPlay</a><p><a href="../data/tasks.json?v=20261025" download>Task definitions</a> · <a href="../data/results.csv?v=20261025" download>Evaluation results</a></p><p>Website layout adapted from <a href="https://osworld-v2.xlang.ai/" target="_blank" rel="noopener">OSWorld 2.0</a>. Content and figures from the LOLPlay paper.</p></footer>
+<noscript><p class="noscript">Enable JavaScript to search and filter all 36 tasks. You can <a href="../data/tasks.json?v=20261025" download>download the complete task definitions</a>.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,10 @@
+model,provider,effort,taskSuccess,subgoalSuccess,turns,latency,successes
+GPT-6 Astra,OpenAI,low,25,37.7,43.9,7.47,9
+GPT-6 Astra,OpenAI,medium,25,40.3,37.8,8.39,9
+GPT-6 Astra,OpenAI,high,16.7,33.7,27.1,16.67,6
+GPT-6.1 Sol,OpenAI,low,13.9,32.1,42.8,8.9,5
+GPT-6.1 Sol,OpenAI,medium,11.1,31.3,33.2,11.44,4
+GPT-6.1 Sol,OpenAI,high,11.1,24,37.4,10.26,4
+DeepSeek-v4.1-Flash,DeepSeek,low,5.6,22.2,89.8,2.81,2
+DeepSeek-v4.1-Flash,DeepSeek,medium,2.8,20,91.9,3.05,1
+DeepSeek-v4.1-Flash,DeepSeek,high,0,18.1,77,4.67,0

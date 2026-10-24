@@ -1,0 +1,92 @@
+[
+  {
+    "model": "GPT-6 Astra",
+    "provider": "OpenAI",
+    "effort": "low",
+    "taskSuccess": 25,
+    "subgoalSuccess": 37.7,
+    "turns": 43.9,
+    "latency": 7.47,
+    "successes": 9
+  },
+  {
+    "model": "GPT-6 Astra",
+    "provider": "OpenAI",
+    "effort": "medium",
+    "taskSuccess": 25,
+    "subgoalSuccess": 40.3,
+    "turns": 37.8,
+    "latency": 8.39,
+    "successes": 9
+  },
+  {
+    "model": "GPT-6 Astra",
+    "provider": "OpenAI",
+    "effort": "high",
+    "taskSuccess": 16.7,
+    "subgoalSuccess": 33.7,
+    "turns": 27.1,
+    "latency": 16.67,
+    "successes": 6
+  },
+  {
+    "model": "GPT-6.1 Sol",
+    "provider": "OpenAI",
+    "effort": "low",
+    "taskSuccess": 13.9,
+    "subgoalSuccess": 32.1,
+    "turns": 42.8,
+    "latency": 8.9,
+    "successes": 5
+  },
+  {
+    "model": "GPT-6.1 Sol",
+    "provider": "OpenAI",
+    "effort": "medium",
+    "taskSuccess": 11.1,
+    "subgoalSuccess": 31.3,
+    "turns": 33.2,
+    "latency": 11.44,
+    "successes": 4
+  },
+  {
+    "model": "GPT-6.1 Sol",
+    "provider": "OpenAI",
+    "effort": "high",
+    "taskSuccess": 11.1,
+    "subgoalSuccess": 24,
+    "turns": 37.4,
+    "latency": 10.26,
+    "successes": 4
+  },
+  {
+    "model": "DeepSeek-v4.1-Flash",
+    "provider": "DeepSeek",
+    "effort": "low",
+    "taskSuccess": 5.6,
+    "subgoalSuccess": 22.2,
+    "turns": 89.8,
+    "latency": 2.81,
+    "successes": 2
+  },
+  {
+    "model": "DeepSeek-v4.1-Flash",
+    "provider": "DeepSeek",
+    "effort": "medium",
+    "taskSuccess": 2.8,
+    "subgoalSuccess": 20,
+    "turns": 91.9,
+    "latency": 3.05,
+    "successes": 1
+  },
+  {
+    "model": "DeepSeek-v4.1-Flash",
+    "provider": "DeepSeek",
+    "effort": "high",
+    "taskSuccess": 0,
+    "subgoalSuccess": 18.1,
+    "turns": 77,
+    "latency": 4.67,
+    "successes": 0
+  }
+]

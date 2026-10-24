@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LOLPlay: Benchmarking Real-Time Visual Agents in League of Legends. 36 champion-specific tasks, 82 executable subgoal checks, and 324 evaluations.">
+  <meta name="author" content="Zhaojian Yu">
+  <meta name="theme-color" content="#ffffff">
+  <title>LOLPlay: Benchmarking Real-Time Visual Agents in League of Legends</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=20261025">
+  <script defer src="app.js?v=20261025"></script>
+</head>
+<body data-root=".">
+<main id="top">
+  <section class="hero" id="home">
+    <div class="container">
+      <h1 class="publication-title"><span>LOLPlay: Benchmarking Real-Time</span><span>Visual Agents in League of Legends</span></h1>
+      <div class="publication-authors"><span>Zhaojian Yu</span><a class="author-contact" href="mailto:zhaojian.yu01@gmail.com">zhaojian.yu01@gmail.com</a></div>
+      <div class="publication-links" aria-label="Project resources">
+        
+        <a class="pill" href="data/results.csv?v=20261025" download><span aria-hidden="true">▤</span> Data</a>
+        <a class="pill" href="task-showcase/"><span aria-hidden="true">▧</span> Task showcase</a>
+        <a class="pill" href="task-showcase/#catalog"><span aria-hidden="true">♧</span> Explore all 36 tasks</a>
+        <a class="pill" href="#leaderboard"><span aria-hidden="true">▥</span> Leaderboard</a>
+        <a class="pill" href="#citation"><span aria-hidden="true">❞</span> Citation</a>
+      </div>
+      <figure class="hero-media zoomable">
+        <button class="image-button" data-zoom="assets/moba_teaser.png" data-caption="The agent thinks; the environment keeps moving." aria-label="Enlarge LOLPlay real-time interaction figure"><img src="assets/moba_teaser.png" alt="Comparison of an environment waiting for an action and LOLPlay continuing to advance during reasoning, actions, and capture." fetchpriority="high" width="1728" height="1044"></button>
+      </figure>
+      <div class="headline-stats" aria-label="LOLPlay headline statistics">
+        <div><strong>36</strong><span>Champion-specific tasks</span></div>
+        <div><strong>82</strong><span>Subgoal checks</span></div>
+        <div><strong>6</strong><span>Task families</span></div>
+        <div><strong>324</strong><span>Task evaluations</span></div>
+        <div><strong>25.0%</strong><span>Best task success</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section abstract-section" id="abstract">
+    <div class="container narrow">
+      <h2>Abstract</h2>
+      <p class="abstract">Visual agents must coordinate reasoning and action when the environment continues to evolve during inference. We introduce <strong>LOLPlay</strong>, a real-time visual-agent benchmark in <em>League of Legends</em>. Its 36 champion-specific tasks combine resource management, combat, cooperation, and objectives through screenshots and mouse–keyboard actions. Each task includes automated initialization and executable state/event evaluation, with 82 subgoal checks distinguishing partial progress from completion. Across 324 task evaluations of three models at three reasoning-effort settings, the highest task success rate is <strong>25.0%</strong>, shared by GPT-6 Astra at low and medium effort; medium effort also achieves the highest subgoal success rate of <strong>40.3%</strong>. High effort improves neither metric over low effort for any model. Analyses reveal incomplete subgoal composition and actions executing after the observed scene changes, motivating agents that integrate visual reasoning with timely control.</p>
+    </div>
+  </section>
+
+  <section class="section overview-section" id="overview">
+    <div class="container">
+      <figure class="paper-figure">
+        <button class="image-button" data-zoom="assets/overview.png" data-caption="The LOLPlay execution and evaluation workflow." aria-label="Enlarge benchmark workflow"><img src="assets/overview.png" alt="LOLPlay workflow connecting task configuration, automated League client initialization, screenshot and mouse–keyboard interaction, and independent state/event evaluation." loading="lazy"></button>
+        <figcaption><strong>The LOLPlay execution and evaluation workflow.</strong> Tasks connect screenshot-based interaction to independent state and event checks while gameplay continues. The agent observes pixels and acts through a mouse and keyboard; the evaluator verifies outcomes with Live Client API evidence.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section sweep-section" aria-label="Interactive LOLPlay benchmark comparison">
+    <div class="container">
+      <div class="benchmark-panel">
+        <div class="chart-toolbar">
+          <div class="metric-group"><span class="axis-badge">X</span><div class="segmented" role="group" aria-label="X-axis metric"><button class="active" data-x="latency" aria-pressed="true">Request latency</button><button data-x="turns" aria-pressed="false">Turns</button></div></div>
+          <div class="metric-group"><span class="axis-badge">Y</span><div class="segmented" role="group" aria-label="Y-axis metric"><button data-y="subgoalSuccess" aria-pressed="false">Subgoal success</button><button class="active" data-y="taskSuccess" aria-pressed="true">Task success</button></div></div>
+          <span class="dataset-badge">Full set · 36 tasks</span>
+        </div>
+        <div class="sweep-layout">
+          <div class="chart-side"><div id="sweep-chart" class="sweep-chart" aria-label="Model performance against request latency"></div><p class="chart-note">Each point is one model–effort configuration. Lines connect low → medium → high effort.</p><div id="chart-tooltip" class="chart-tooltip" hidden></div></div>
+          <div class="sweep-table-wrap"><table class="sweep-table"><thead><tr><th>Model</th><th>Effort</th><th id="sweep-x-header">Latency</th><th id="sweep-y-header">Task success</th></tr></thead><tbody id="sweep-rows"></tbody></table></div>
+        </div>
+        <div class="model-toggles" aria-label="Model visibility"><span>MODELS</span><label><input type="checkbox" value="GPT-6 Astra" checked><i style="--model-color:#719bd4"></i>GPT-6 Astra</label><label><input type="checkbox" value="GPT-6.1 Sol" checked><i style="--model-color:#d98d79"></i>GPT-6.1 Sol</label><label><input type="checkbox" value="DeepSeek-v4.1-Flash" checked><i style="--model-color:#77a88c"></i>DeepSeek-v4.1-Flash</label></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="task-statistics">
+    <div class="container">
+      <h2>Task Statistics</h2>
+      <div class="statistics-grid"><article>
+      <h3>Task Time Budgets</h3>
+      <p>Each task controls a distinct champion, with a 5–20 minute execution budget. Gameplay continues during model reasoning and action execution.</p>
+      <div id="budget-chart" class="budget-chart" aria-label="Distribution of task execution budgets"></div>
+      </article><article>
+      <h3>Task Family Distribution</h3>
+      <p>The 36 tasks span six primary control demands. Click a family to inspect its tasks and executable outcome checks.</p>
+      <div class="distribution-layout">
+        <div id="family-donut" class="family-donut" aria-label="Interactive task family distribution"></div>
+        <div id="family-list" class="family-list"></div>
+      </div>
+      <div class="family-detail" id="family-detail" aria-live="polite"></div>
+      </article><article>
+      <h3>Executable Evaluation</h3>
+      <p>Task completion is verified independently from the agent's final message. A successful task satisfies every required condition, including its event order and deadline.</p>
+      <table class="research-table"><thead><tr><th>Evidence</th><th>What is checked</th><th>Examples</th></tr></thead><tbody><tr><td><strong>Final state</strong></td><td>Player state after termination</td><td>Level, inventory, skill ranks, attribute growth</td></tr><tr><td><strong>Deadline state</strong></td><td>A snapshot at the prescribed endpoint</td><td>Health, mana, survival at the deadline</td></tr><tr><td><strong>Recorded events</strong></td><td>Event identity, timestamp, and required order</td><td>Personal kills, assists, dragons, and turrets</td></tr></tbody></table>
+      </article><article><h3>Challenge Phenomena</h3>
+      <p>Familiar desktop inputs must be coordinated with a changing world. The benchmark exposes several recurring demands on real-time visual agents.</p>
+      <table class="research-table challenge-table"><thead><tr><th>Phenomenon</th><th>Control demand</th></tr></thead><tbody><tr><td><strong>Observation–action delay</strong><small>Reasoning continues while the scene evolves.</small></td><td>Refresh observations and replan when enemies, combat, or interfaces change.</td></tr><tr><td><strong>Subgoal composition</strong><small>Partial progress does not guarantee completion.</small></td><td>Satisfy all resource, skill, survival, and objective conditions together.</td></tr><tr><td><strong>Deadline control</strong><small>Some outcomes must hold at a specific endpoint.</small></td><td>Maintain the required state until the task's time budget expires.</td></tr><tr><td><strong>Ordered objectives</strong><small>Correct outcomes can require a particular sequence.</small></td><td>Personally kill a Voidgrub before destroying the target turret.</td></tr><tr><td><strong>Visual grounding</strong><small>The agent receives no structured unit-state feed.</small></td><td>Read the HUD, localize targets, allocate abilities, and navigate the shop from pixels.</td></tr></tbody></table>
+      </article></div>
+      <p class="feasibility-note"><strong>Human feasibility check.</strong> Two players, each with more than 200 prior League of Legends matches, cross-validated the full suite under the same configurations, budgets, and evaluator. All 36 tasks were completed. This verifies task feasibility; it is not a population-level estimate of human performance.</p>
+    </div>
+  </section>
+
+  <section class="section" id="leaderboard">
+    <div class="container">
+      <h2>Leaderboard</h2>
+      <div class="leaderboard-controls"><div class="segmented" role="group" aria-label="Model category"><button class="active" data-provider="all" aria-pressed="true">All models</button><button data-provider="OpenAI" aria-pressed="false">OpenAI</button><button data-provider="DeepSeek" aria-pressed="false">DeepSeek</button></div><label>Reasoning effort <select id="effort-filter"><option value="all">All</option><option value="low">Low</option><option value="medium">Medium</option><option value="high">High</option></select></label><span>36 tasks / configuration</span></div>
+      <div class="table-scroll"><table class="leaderboard-table"><thead><tr><th>Rank</th><th>Model</th><th>Approach &amp; Details</th><th><button data-sort="taskSuccess" aria-label="Sort by task success">Task success <span>↓</span></button></th><th><button data-sort="subgoalSuccess" aria-label="Sort by subgoal success">Subgoal</button></th><th><button data-sort="latency" aria-label="Sort by request latency">Latency / request</button></th><th>Turns</th></tr></thead><tbody id="leaderboard-rows"></tbody></table></div>
+      <div class="leaderboard-notes"><p><sup>1</sup> Task success requires all task conditions. Subgoal success gives equal weight to tasks by averaging each task's fraction of completed checks.</p><p><sup>2</sup> 324 task evaluations: 3 models × 3 effort settings × 36 tasks. Each configuration contributes one recorded attempt per task. Initialization failures remain in the denominator and receive no success credit; comparisons are descriptive.</p><p><sup>3</sup> Results use the current instruction-aligned 82-check suite. The revision re-evaluates 54 existing trajectories without new gameplay rollouts.</p></div>
+      <p class="update-time">Updated: 25 October 2026 ·  <a href="data/results.csv?v=20261025" download>Download results ↗</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="key-findings">
+    <div class="container">
+      <h2>Key Findings</h2>
+      <div class="carousel-heading"><button id="finding-prev" class="round-arrow" aria-label="Previous finding">‹</button><span id="finding-label">Reasoning Effort and Task Completion</span><button id="finding-next" class="round-arrow" aria-label="Next finding">›</button></div>
+      <div id="finding-content" class="finding-content"></div>
+      <div id="finding-dots" class="carousel-dots" aria-label="Choose finding"></div>
+    </div>
+  </section>
+
+  <section class="section" id="case-studies">
+    <div class="container">
+      <h2>Case Studies</h2>
+      <p class="centered section-description">Two archived trajectories show the gap between timely local actions and verified task completion.</p>
+      <div class="case-tabs" role="tablist" aria-label="Choose case study"><button role="tab" aria-selected="true" data-case="0"><small>Task035 · Warwick</small>Acting on a Stale Observation</button><button role="tab" aria-selected="false" data-case="1"><small>Task013 · Cho'Gath</small>From Instruction to Verified Completion</button></div>
+      <div id="case-content" class="case-content" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <section class="section" id="trajectory-showcase">
+    <div class="container"><h2>Trajectory Showcase</h2><div id="showcase-rail" class="showcase-rail" aria-label="Representative task screenshots"></div><div class="showcase-links"><a class="pill" href="task-showcase/">▧ Task showcase</a><a class="pill" href="task-showcase/#catalog">♧ Explore all 36 tasks</a></div></div>
+  </section>
+
+  <section class="section more-research" id="benchmark-resources">
+    <div class="container"><h2>Benchmark Resources</h2><div class="resource-grid"><article><h3><a href="task-showcase/#catalog">Complete Task Catalog</a><span>36 tasks · 82 checks</span></h3><p>Champion-specific objectives, time budgets, and the executable outcome checks.</p><a href="task-showcase/#catalog">Explore tasks ↗</a> <a href="data/tasks.json?v=20261025" download>JSON ↓</a></article><article><h3><a href="data/results.csv?v=20261025" download>Evaluation Results</a><span>9 configurations</span></h3><p>Task and subgoal success, request latency, and responses per executed episode.</p><a href="data/results.csv?v=20261025" download>CSV ↓</a> <a href="data/results.json?v=20261025" download>JSON ↓</a></article></div></div>
+  </section>
+
+  <section class="section citation-section" id="citation"><div class="container"><h2>Citation</h2><p class="centered">Cite the current LOLPlay paper.</p><div class="citation-box"><button id="copy-citation" aria-label="Copy BibTeX citation">Copy</button><pre id="citation-text">@misc{yu2026lolplay,
+  title  = {LOLPlay: Benchmarking Real-Time Visual Agents
+            in League of Legends},
+  author = {Zhaojian Yu},
+  year   = {2026}
+}</pre></div><span id="copy-status" class="sr-only" aria-live="polite"></span></div></section>
+</main>
+<footer><a href="#top">LOLPlay</a><p>Website layout adapted from <a href="https://osworld-v2.xlang.ai/" target="_blank" rel="noopener">OSWorld 2.0</a>. Content and figures from the LOLPlay paper.</p></footer>
+<dialog id="image-dialog" aria-label="Figure preview"><button class="dialog-close" aria-label="Close figure preview">×</button><img id="dialog-image" alt=""><p id="dialog-caption"></p></dialog>
+<noscript><p class="noscript">Enable JavaScript to explore the interactive results and task catalog. The paper and data downloads remain available above.</p></noscript>
+</body>
+</html>
