@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#ffffff">
   <title>LOLPlay: Benchmarking Real-Time Visual Agents in League of Legends</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=gameplay-section">
+  <link rel="stylesheet" href="styles.css?v=final-highlights">
   <script defer src="app.js?v=task002-cover"></script>
 </head>
 <body data-root=".">
@@ -26,6 +26,25 @@
         <a class="pill" href="#leaderboard"><span aria-hidden="true">▥</span> Leaderboard</a>
         <a class="pill" href="#citation"><span aria-hidden="true">❞</span> Citation</a>
       </div>
+      <section class="section gameplay-section" id="task002-video" aria-labelledby="gameplay-title">
+        <div class="gameplay-content">
+          <h2 id="gameplay-title">Side-by-Side Gameplay</h2>
+          <p class="gameplay-intro">GPT-6 Astra and DeepSeek-v4.1-Flash take on the same jungle objective: develop Lee Sin and personally defeat the first elemental dragon within ten minutes.</p>
+          <figure class="hero-video">
+            <div class="hero-video-player">
+              <video id="task002-player" controls playsinline preload="none" width="1440" height="714" poster="assets/videos/task002-cover.jpg" aria-label="Side-by-side gameplay">
+                <source src="assets/videos/task002-comparison.mp4?v=final-highlights" type="video/mp4">
+                Your browser does not support embedded video. <a href="assets/videos/task002-comparison.mp4?v=final-highlights">Open the MP4</a>.
+              </video>
+              <button class="hero-video-cover" type="button" aria-label="Play side-by-side gameplay" aria-controls="task002-player" hidden>
+                <span class="hero-video-play" aria-hidden="true">▶</span>
+              </button>
+            </div>
+            <figcaption><p class="gameplay-takeaway"><strong>In this comparison, DeepSeek-v4.1-Flash responded faster, but repeated clicks at incorrect coordinates exhausted its 100-step budget, leaving it behind GPT-6 Astra in task progress.</strong></p>
+            <p>Both recordings are aligned at the first frame in which Lee Sin appears. The video shows task instructions, action logs, and input highlights, then holds each recording on its final gameplay frame. These illustrative runs are separate from the benchmark results below. Input highlight timing is estimated from action-batch logs.</p></figcaption>
+          </figure>
+        </div>
+      </section>
       <figure class="hero-media zoomable">
         <button class="image-button" data-zoom="assets/moba_teaser.png" data-caption="The agent thinks; the environment keeps moving." aria-label="Enlarge LOLPlay real-time interaction figure"><img src="assets/moba_teaser.png" alt="Comparison of an environment waiting for an action and LOLPlay continuing to advance during reasoning, actions, and capture." fetchpriority="high" width="1728" height="1044"></button>
       </figure>
@@ -36,25 +55,6 @@
         <div><strong>324</strong><span>Task evaluations</span></div>
         <div><strong>25.0%</strong><span>Best task success</span></div>
       </div>
-    </div>
-  </section>
-
-  <section class="section gameplay-section" id="task002-video" aria-labelledby="gameplay-title">
-    <div class="container">
-      <h2 id="gameplay-title">Side-by-Side Gameplay</h2>
-      <p class="gameplay-intro">GPT-6 Astra and DeepSeek-v4.1-Flash take on the same jungle objective: develop Lee Sin and personally defeat the first elemental dragon within ten minutes.</p>
-      <figure class="hero-video">
-        <div class="hero-video-player">
-          <video id="task002-player" controls playsinline preload="none" width="1440" height="714" poster="assets/videos/task002-cover.jpg" aria-label="Side-by-side gameplay">
-            <source src="assets/videos/task002-comparison.mp4" type="video/mp4">
-            Your browser does not support embedded video. <a href="assets/videos/task002-comparison.mp4">Open the MP4</a>.
-          </video>
-          <button class="hero-video-cover" type="button" aria-label="Play side-by-side gameplay" aria-controls="task002-player" hidden>
-            <span class="hero-video-play" aria-hidden="true">▶</span>
-          </button>
-        </div>
-        <figcaption>Both recordings are aligned at the first frame in which Lee Sin appears. The video shows task instructions, action logs, and input highlights, then holds each recording on its final gameplay frame. These illustrative runs are separate from the benchmark results below. Input highlight timing is estimated from action-batch logs.</figcaption>
-      </figure>
     </div>
   </section>
 

@@ -11,13 +11,15 @@
 @media(max-width:420px){.statistics-grid .distribution-layout{grid-template-columns:1fr}.publication-title{font-size:30px}.chart-toolbar .segmented button{padding:4px 6px;font-size:11px}.metric-group{gap:5px}}
 .author-contact{display:block;font-size:13px;margin-top:4px}.feasibility-note{font-size:14px;line-height:1.6;margin:28px 0 0;color:#666}
 
-.gameplay-section{background:#f3f8f9;border-block:1px solid #e1e8ea}
+.hero .gameplay-section{background:#f3f8f9;border:1px solid #e1e8ea;border-radius:12px;padding:clamp(22px,4vw,42px) clamp(12px,3vw,28px);margin:0 auto 24px;max-width:980px}
 .gameplay-intro{max-width:600px;margin:0 auto 24px;text-align:center;font-size:clamp(16px,2.3vw,19px);line-height:1.5;color:#414a4e}
 .hero-video{max-width:920px;margin:0 auto}
 .hero-video figcaption{margin-top:14px;font-size:14px;line-height:1.55;color:#515e64;text-align:left}
+.hero-video figcaption p{margin:0}
+.hero-video figcaption .gameplay-takeaway{margin-bottom:9px;color:#202a30;font-size:15px}
 .hero-video-player{position:relative;overflow:hidden;border-radius:10px;background:#101827;box-shadow:0 8px 22px #10182724}
 .hero-video-player video{display:block;width:100%;height:auto;aspect-ratio:1440/714}
 .hero-video-cover{position:absolute;inset:0 0 42px;width:100%;border:0;padding:0;background:transparent;cursor:pointer}
 .hero-video-cover:focus-visible{outline:3px solid #f8cb79;outline-offset:-5px}
-.hero-video-play{position:absolute;top:calc(50% + 21px);left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:clamp(38px,6vw,68px);aspect-ratio:1;border-radius:50%;background:#101827db;color:white;box-shadow:0 3px 20px #0008;font-size:clamp(14px,2.2vw,25px);padding-left:.12em}
-.hero-video-cover:hover .hero-video-play{background:#101827}
+.hero-video-play{position:absolute;top:calc(50% + 21px);left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:clamp(38px,6vw,68px);aspect-ratio:1;border-radius:50%;background:#f8cb79;color:#17243a;box-shadow:0 3px 20px #0008;font-size:clamp(14px,2.2vw,25px);padding-left:.12em}
+.hero-video-cover:hover .hero-video-play{background:#ffdf9f}
