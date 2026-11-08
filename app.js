@@ -127,6 +127,18 @@
     try{await navigator.clipboard.writeText($('#citation-text').textContent);$('#copy-citation').textContent='Copied!';$('#copy-status').textContent='Citation copied to clipboard.';}
     catch{const selection=window.getSelection(),range=document.createRange();range.selectNodeContents($('#citation-text'));selection.removeAllRanges();selection.addRange(range);$('#copy-citation').textContent='Selected';$('#copy-status').textContent='Citation selected. Press Control C or Command C to copy.';}
   });
+  const demo = $('#task002-player'), demoCover = $('.hero-video-cover');
+  if (demo && demoCover) {
+    demoCover.hidden = false;
+    demoCover.addEventListener('click', () => {
+      demo.play().catch(() => { demoCover.hidden = true; demo.focus(); });
+    });
+    demo.addEventListener('play', () => {
+      const coverHadFocus = document.activeElement === demoCover;
+      demoCover.hidden = true;
+      if (coverHadFocus) demo.focus({preventScroll: true});
+    }, {once: true});
+  }
   drawFamilies();showFinding(0);showCase(0);
   Promise.all(['results','tasks'].map(name=>fetch(`data/${name}.json?v=20261025`).then(r=>{if(!r.ok)throw new Error(`Cannot load ${name}`);return r.json();})))
     .then(([r,t])=>{results=r;tasks=t;drawSweep();drawLeaderboard();drawShowcase();drawBudgets();})

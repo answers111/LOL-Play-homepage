@@ -8,8 +8,8 @@
   <meta name="theme-color" content="#ffffff">
   <title>LOLPlay: Benchmarking Real-Time Visual Agents in League of Legends</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20261025">
-  <script defer src="app.js?v=20261025"></script>
+  <link rel="stylesheet" href="styles.css?v=task002-cover">
+  <script defer src="app.js?v=task002-cover"></script>
 </head>
 <body data-root=".">
 <main id="top">
@@ -26,6 +26,18 @@
         <a class="pill" href="#leaderboard"><span aria-hidden="true">▥</span> Leaderboard</a>
         <a class="pill" href="#citation"><span aria-hidden="true">❞</span> Citation</a>
       </div>
+      <figure class="hero-video" id="task002-video">
+        <div class="hero-video-player">
+          <video id="task002-player" controls playsinline preload="none" width="1440" height="714" poster="assets/videos/task002-cover.jpg" aria-label="Task002 gameplay comparison">
+            <source src="assets/videos/task002-comparison.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="assets/videos/task002-comparison.mp4">Open the MP4</a>.
+          </video>
+          <button class="hero-video-cover" type="button" aria-label="Play Task002 gameplay comparison" aria-controls="task002-player" hidden>
+            <span class="hero-video-copy"><small>LOLPLAY · TASK 002 · 10:06</small><strong>Two Agents, One Dragon</strong><span>GPT-6 Astra vs. DeepSeek-v4.1-Flash</span></span>
+            <span class="hero-video-play" aria-hidden="true">▶</span>
+          </button>
+        </div>
+      </figure>
       <figure class="hero-media zoomable">
         <button class="image-button" data-zoom="assets/moba_teaser.png" data-caption="The agent thinks; the environment keeps moving." aria-label="Enlarge LOLPlay real-time interaction figure"><img src="assets/moba_teaser.png" alt="Comparison of an environment waiting for an action and LOLPlay continuing to advance during reasoning, actions, and capture." fetchpriority="high" width="1728" height="1044"></button>
       </figure>
@@ -124,16 +136,6 @@
       <p class="centered section-description">Two archived trajectories show the gap between timely local actions and verified task completion.</p>
       <div class="case-tabs" role="tablist" aria-label="Choose case study"><button role="tab" aria-selected="true" data-case="0"><small>Task035 · Warwick</small>Acting on a Stale Observation</button><button role="tab" aria-selected="false" data-case="1"><small>Task013 · Cho'Gath</small>From Instruction to Verified Completion</button></div>
       <div id="case-content" class="case-content" role="tabpanel"></div>
-    </div>
-  </section>
-
-  <section class="section" id="task002-video">
-    <div class="container narrow">
-      <h2>Task002 Comparison</h2>
-      <video controls playsinline preload="none" aria-label="Task002 gameplay comparison" style="display:block;width:100%;height:auto;aspect-ratio:16/9;background:#111">
-        <source src="assets/videos/task002-comparison.mp4" type="video/mp4">
-        Your browser does not support embedded video. <a href="assets/videos/task002-comparison.mp4">Open the MP4</a>.
-      </video>
     </div>
   </section>
 
